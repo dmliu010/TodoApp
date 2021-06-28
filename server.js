@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended: false}))
 //Password Protection Function
 function passwordProtection(req, res, next) {
     res.set('WWW-Authenticate', 'Basic realm="Deming\'s Amazon Essentials Thrifty Budget Todo App"')
-    if (req.headers.authorization == "Basic YWRtaW46RnVua3lNb25rZXkh") {
+    if (req.headers.authorization == credentials.siteCred) {
         next()
     } else {
         res.status(401).send("Authorization required")
