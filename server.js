@@ -3,8 +3,14 @@ let mongodb = require('mongodb')
 let credentials = require('./credentials')
 let safeTxt = require('sanitize-html')
 
-let app = express()
 let db
+
+let app = express()
+let port = process.env.PORT
+if (port == null || port == "") {
+    port=3000
+}
+
 
 // create your own "credentials.js file and put your own MongoDB credentials in mongoCred variable"
 let connectionString = credentials.mongoCred
